@@ -8,3 +8,11 @@ export const getCharacters = createAsyncThunk(
     return data.data;
   },
 );
+
+export const getCharactersById = createAsyncThunk(
+  "getCharactersById/character",
+  async (id) => {
+    const data = await instance.get("character/" + id);
+    return data.data;
+  },
+);

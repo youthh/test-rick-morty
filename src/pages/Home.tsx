@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { TopButtons, CharacterList } from "components";
-import { Pagination } from "@mui/material";
-import { useAppDispatch, useAppSelector } from "../utils/Hooks/reduxHooks";
-import { getCharacters } from "../store/Characters/actions";
-import { characterSelector } from "../store/Characters/reducers";
-
+//components
+import { TopButtons, CharacterList, FabsBox } from "components";
+import { Box, Pagination } from "@mui/material";
+//hooks
+import { useAppDispatch, useAppSelector } from "utils/Hooks";
+//store
+import { getCharacters } from "store/Characters/actions";
+import { characterSelector } from "store/Characters/reducers";
 export const Home = () => {
   const dispatch = useAppDispatch();
   const { allCharacters, pages, isLoading } = useAppSelector(characterSelector);
@@ -17,16 +19,19 @@ export const Home = () => {
   }, [page]);
 
   return (
-    <div>
+    <Box>
       <TopButtons />
-      <CharacterList allCharacters={allCharacters} />
-      <Pagination
-        onChange={(event, page) => setPage(page)}
-        page={page}
-        count={pages}
-        variant="outlined"
-        shape="rounded"
-      />
-    </div>
+      <CharacterList isLoading={isLoading} allCharacters={allCharacters} />
+      <Box sx={{ position: "relative" }}>
+        <FabsBox />
+        <Pagination
+          onChange={(event, page) => setPage(page)}
+          page={page}
+          count={pages}
+          variant="outlined"
+          shape="rounded"
+        />
+      </Box>
+    </Box>
   );
 };

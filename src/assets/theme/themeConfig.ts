@@ -54,6 +54,9 @@ export const themeConfig = createTheme({
         previousNext: {
           background: "#F5F5F5",
           color: "#272B33",
+          "&:hover": {
+            background: "#a8a8a8",
+          },
         },
       },
     },

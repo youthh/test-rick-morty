@@ -11,6 +11,7 @@
 }
 
 .character {
+  position: relative;
   display: flex;
   border-radius: 9px;
   background: #3c3e44;
@@ -19,11 +20,19 @@
     0 2px 4px -1px rgba(0, 0, 0, 0.06),
     0px 4px 6px -1px rgba(0, 0, 0, 0.1);
 
+  &.current {
+    height: 400px;
+  }
+
   &__img {
     border-radius: 9px;
     object-fit: cover;
     display: block;
     height: 220px;
+
+    &.current {
+      height: 400px;
+    }
   }
 }
 
@@ -58,9 +67,9 @@
 .status {
   padding-left: 18px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  max-width: 120px;
+  gap: 5px;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
