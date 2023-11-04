@@ -7,7 +7,7 @@ import {
   HISTORY_LOCAL_STORAGE_KEY,
 } from "utils/Const";
 import { useWriteHistory } from "utils/Hooks";
-import { Filter, FilterHistorySearch } from "utils/types";
+import { FilterHistorySearch } from "utils/types";
 import HistoryFilterCategory from "./HistoryFilterCategory";
 type HistoryProps = {
   open: boolean;

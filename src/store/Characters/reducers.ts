@@ -56,7 +56,7 @@ export const characterSlice = createSlice({
       state.allCharacters = results;
       state.numberOfMaxPages = info.pages;
     });
-    builder.addCase(getCharacters.rejected, (state, action) => {
+    builder.addCase(getCharacters.rejected, (state) => {
       state.isLoading = false;
       state.allCharacters = [];
     });

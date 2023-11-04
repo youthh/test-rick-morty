@@ -75,7 +75,6 @@ const FilterButtonsForm = ({
             <RenderInputsFIelds
               key={item}
               isOpenOverlay={isOpenOverlay}
-              isOpen={isOpen}
               filter_parameter_field={getParameterField(item)}
               nameParameter={item}
             />

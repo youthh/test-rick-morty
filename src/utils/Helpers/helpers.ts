@@ -1,5 +1,5 @@
 import { ICharacter } from "../Interfaces";
-import { Character, Episodes, Filter, Location } from "../types";
+import { Character, Episodes, Location } from "../types";
 import {
   FILTER_PARAMETERS_CHARACTERS,
   FILTER_PARAMETERS_EPISODES,
@@ -32,7 +32,7 @@ export const createCharacterQuery = (
   character: Character | Episodes | Location,
 ) => {
   return Object.entries(character)
-    .filter(([key, value]) => value !== "" && value !== undefined)
+    .filter(([, value]) => value !== "" && value !== undefined)
     .map(([key, value]) => `&${key}=${value}`)
     .join("");
 };

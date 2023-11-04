@@ -5,21 +5,19 @@ import { Character, Episodes, Location } from "utils/types";
 import { Box } from "@mui/material";
 
 type RenderInputsFIeldsProps = {
-  isOpen: boolean;
   filter_parameter_field: Episodes | Location | Character;
   nameParameter: string;
   isOpenOverlay: boolean;
 };
 
 const RenderInputsFIelds = ({
-  isOpen,
   filter_parameter_field,
   nameParameter,
   isOpenOverlay,
 }: RenderInputsFIeldsProps) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      {Object.entries(filter_parameter_field).map(([key, value], index) => {
+      {Object.entries(filter_parameter_field).map(([, value], index) => {
         if (isOpenOverlay) {
           return (
             <Field

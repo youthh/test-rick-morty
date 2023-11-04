@@ -1,11 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { instance } from "api/axiosConfig";
-import {
-  Character,
-  Episodes,
-  GetCharactersByIdsTypes,
-  Location,
-} from "utils/types";
+import { GetCharactersByIdsTypes } from "utils/types";
 import { getFilteredCharacters, getCharactersIds } from "utils/Helpers";
 
 export const getCharacters = createAsyncThunk(
