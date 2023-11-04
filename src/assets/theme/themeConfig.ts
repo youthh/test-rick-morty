@@ -65,8 +65,31 @@ export const themeConfig = createTheme({
         root: {
           background: "#F5F5F5",
           color: "#272B33",
-          padding: "8px 12px",
           borderRadius: "4px 4px 0 0 !important",
+          width: "250px",
+          zIndex: "5000",
+          padding: "0 12px",
+          "&::placeholder": {
+            color: "#272B33",
+          },
+        },
+      },
+    },
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          marginTop: "1px",
+          zIndex: "5000",
+          borderRadius: "0 0 4px 4px",
+        },
+      },
+    },
+    MuiCheckbox: {
+      styleOverrides: {
+        root: {
+          "&.Mui-checked": {
+            color: "rgba(0, 0, 0, 0.6) !important",
+          },
         },
       },
     },

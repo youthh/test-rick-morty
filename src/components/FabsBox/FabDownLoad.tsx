@@ -3,7 +3,7 @@ import { Fab, Slide } from "@mui/material";
 import FileDownloadOutlinedIcon from "@mui/icons-material/FileDownloadOutlined";
 import { arrayToBlob } from "utils/Helpers";
 import save from "save-file";
-import { useAppSelector } from "utils/Hooks/reduxHooks";
+import { useAppSelector } from "utils/Hooks";
 import { characterSelector } from "store/Characters/reducers";
 
 type FubsDownLoadProps = {

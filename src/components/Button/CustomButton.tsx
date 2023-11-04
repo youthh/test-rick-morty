@@ -2,7 +2,7 @@ import React from "react";
 import { Button, ButtonProps } from "@mui/material";
 
 interface CustomButtonProps extends ButtonProps {
-  text: "filter" | "find" | "remove filter";
+  text: "filter" | "find" | "remove filter" | "Close";
 }
 
 export const CustomButton = ({ text, ...rest }: CustomButtonProps) => {

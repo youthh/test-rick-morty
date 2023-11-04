@@ -7,11 +7,10 @@ export const TopButtons = () => {
   const [isOpenFilter, setIsOpenFilter] = useState(false);
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-      <Box sx={{ width: "30%" }}>
+    <Box sx={{ display: "flex", justifyContent: "space-between", mb: 2.5 }}>
+      <Box sx={{ width: "20%" }}>
         <CustomButton
           onClick={() => setIsOpenFilter(!isOpenFilter)}
-          sx={{ marginBottom: "20px" }}
           variant={"contained"}
           text={isOpenFilter ? "remove filter" : "filter"}
         />

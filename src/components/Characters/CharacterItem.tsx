@@ -1,12 +1,16 @@
 import React from "react";
 import { ICharacter } from "utils/Interfaces";
-import CharacterInfo from "./CharacterInfo";
 import classnames from "classnames";
 import { NavLink } from "react-router-dom";
-import { useAppSelector } from "utils/Hooks/reduxHooks";
-import { characterSelector } from "store/Characters/reducers";
+import { HISTORY_LOCAL_STORAGE_KEY } from "utils/Const";
+//components
+import CharacterInfo from "./CharacterInfo";
 import { FabsBox } from "../FabsBox";
 import { Fade } from "@mui/material";
+//hooks
+import { useAppSelector, useWriteHistory } from "utils/Hooks";
+import { characterSelector } from "store/Characters/reducers";
+//styles
 import styles from "./characters.module.scss";
 
 type CharacterItemProps = {
@@ -19,6 +23,8 @@ export const CharacterItem = ({
   additionalClass = "",
 }: CharacterItemProps) => {
   const { name, image, status, species, location, origin, id } = character;
+
+  const { writeActionToHistoryLS } = useWriteHistory();
 
   const { currentCharacter, isLoading } = useAppSelector(characterSelector);
 
@@ -39,7 +45,15 @@ export const CharacterItem = ({
           {currentCharacter ? (
             <h3 className={styles.info__name}>{name}</h3>
           ) : (
-            <NavLink to={"/" + id}>
+            <NavLink
+              onClick={() =>
+                writeActionToHistoryLS(
+                  "Watched info about " + name,
+                  HISTORY_LOCAL_STORAGE_KEY,
+                )
+              }
+              to={"/" + id}
+            >
               <h3 className={styles.info__name}>{name}</h3>
             </NavLink>
           )}
@@ -48,9 +62,9 @@ export const CharacterItem = ({
           </div>
           <CharacterInfo
             titleInfo={"Last known location"}
-            info={location.name}
+            info={location?.name}
           />
-          <CharacterInfo titleInfo={"First seen in"} info={origin.name} />
+          <CharacterInfo titleInfo={"First seen in"} info={origin?.name} />
         </div>
         {currentCharacter && <FabsBox isDisabledDownloadBtn />}
       </div>

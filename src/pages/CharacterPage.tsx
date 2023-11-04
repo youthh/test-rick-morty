@@ -14,9 +14,7 @@ export const CharacterPage = () => {
   const { currentCharacter } = useAppSelector(characterSelector);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    dispatch(getCharactersById(path.id));
+    dispatch(getCharactersById({ id: path.id || "" }));
 
     return () => {
       dispatch(setNullCurrentCharacter());

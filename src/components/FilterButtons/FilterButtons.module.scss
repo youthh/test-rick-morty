@@ -1,0 +1,30 @@
+.filter {
+  &__inputs {
+    display: flex;
+
+    gap: 2px;
+  }
+}
+
+.form {
+  display: flex;
+  justify-content: flex-start;
+  gap: 25px;
+  width: 80%;
+  align-items: flex-start;
+}
+
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1000;
+
+  &__active {
+    display: block;
+  }
+}
